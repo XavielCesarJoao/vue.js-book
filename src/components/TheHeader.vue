@@ -1,16 +1,144 @@
 <template>
-  <div>
+  <div class="text-3xl font-bold underline bg-amber-700 p-2 justify-around">
     HEADER
+  </div>
+  <div :class="{'title': true, 'title-home': isHome}">
+    Curso De Vue 3
+  </div>
+  <p
+    :class="pClass"
+  >
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    Accusamus autem delectus dolorem doloremque eligendi est i
+    llum laudantium, minus molestiae molestias numquam provident
+    qui quia quibusdam quisquam sapiente similique, sit! Repellat.
+  </p>
+
+  <p
+      :style="styleClass"
+  >
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    Accusamus autem delectus dolorem doloremque eligendi est i
+    llum laudantium, minus molestiae molestias numquam provident
+    qui quia quibusdam quisquam sapiente similique, sit! Repellat.
+  </p>
+
+  <br>
+  <div v-for="(obj , index) in photos" v-bind:key="obj.id">
+    <div class="text-2xl bg-amber-950 text-white p-2 text-justify"
+
+    >
+      <img :src="obj.url" :alt="messageAlt"
+           v-if="obj.url" class="w-20 h-20"
+      >
+      {{ index + 1 }} - {{ obj.title }}
+    </div>
   </div>
 </template>
 <script>
-  export default {
 
+export default {
+  name: 'App',
+  data() {
+    return {
+      styleClass: {color: '#fff', backgroundColor: 'black', fontSize: '59px'},
+      isHome: true,
+      pClass: ['text'],
+      styleTitle: 'title',
+      messageAlt: 'Foto da pagina qualquer',
+      photos: [
+        {
+          "albumId": 1,
+          "id": 1,
+          "title": "accusamus beatae ad facilis cum similique qui sunt",
+          "url": "https://via.placeholder.com/600/92c952",
+          "thumbnailUrl": "https://via.placeholder.com/150/92c952"
+        },
+        {
+          "albumId": 1,
+          "id": 2,
+          "title": "reprehenderit est deserunt velit ipsam",
+          "url": "https://via.placeholder.com/600/771796",
+          "thumbnailUrl": "https://via.placeholder.com/150/771796"
+        },
+        {
+          "albumId": 1,
+          "id": 3,
+          "title": "officia porro iure quia iusto qui ipsa ut modi",
+          "url": "https://via.placeholder.com/600/24f355",
+          "thumbnailUrl": "https://via.placeholder.com/150/24f355"
+        },
+        {
+          "albumId": 1,
+          "id": 4,
+          "title": "culpa odio esse rerum omnis laboriosam voluptate repudiandae",
+          "url": "https://via.placeholder.com/600/d32776",
+          "thumbnailUrl": "https://via.placeholder.com/150/d32776"
+        },
+        {
+          "albumId": 1,
+          "id": 5,
+          "title": "natus nisi omnis corporis facere molestiae rerum in",
+          "url": "https://via.placeholder.com/600/f66b97",
+          "thumbnailUrl": "https://via.placeholder.com/150/f66b97"
+        },
+        {
+          "albumId": 1,
+          "id": 6,
+          "title": "accusamus ea aliquid et amet sequi nemo",
+          "url": "https://via.placeholder.com/600/56a8c2",
+          "thumbnailUrl": "https://via.placeholder.com/150/56a8c2"
+        },
+        {
+          "albumId": 1,
+          "id": 7,
+          "title": "officia delectus consequatur vero aut veniam explicabo molestias",
+          "url": "https://via.placeholder.com/600/b0f7cc",
+          "thumbnailUrl": "https://via.placeholder.com/150/b0f7cc"
+        },
+        {
+          "albumId": 1,
+          "id": 8,
+          "title": "aut porro officiis laborum odit ea laudantium corporis",
+          "url": "https://via.placeholder.com/600/54176f",
+          "thumbnailUrl": "https://via.placeholder.com/150/54176f"
+        },
+        {
+          "albumId": 1,
+          "id": 9,
+          "title": "qui eius qui autem sed",
+          "url": "https://via.placeholder.com/600/51aa97",
+          "thumbnailUrl": "https://via.placeholder.com/150/51aa97"
+        },
+        {
+          "albumId": 1,
+          "id": 10,
+          "title": "beatae et provident et ut vel",
+          "url": "https://via.placeholder.com/600/810b14",
+          "thumbnailUrl": "https://via.placeholder.com/150/810b14"
+        }
+      ],
+
+    }
   }
+}
 </script>
 
 <style>
-  .header {
-
-  }
+.title {
+  color: blue;
+  font-size: 54px;
+  font-weight: bold;
+}
+.title-home{
+  font-size: 50px;
+  color: crimson;
+  font-style: italic;
+}
+.text{
+  color: aliceblue;
+  background: #2c3e50;
+  padding: 5px;
+  margin: 5px;
+}
 </style>
